@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1651694898191" clover="3.2.0">
+  <project timestamp="1651694898191" name="All files">
+    <metrics statements="32" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="15" coveredmethods="15" elements="52" coveredelements="52" complexity="0" loc="32" ncloc="32" packages="1" files="1" classes="1"/>
+    <file name="index.tsx" path="/home/alexyalo/Projects/react-preload-media/src/index.tsx">
+      <metrics statements="32" coveredstatements="32" conditionals="5" coveredconditionals="5" methods="15" coveredmethods="15"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="2" count="1" type="stmt"/>
+      <line num="15" count="1" type="cond" truecount="2" falsecount="0"/>
+      <line num="16" count="1" type="stmt"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="20" count="1" type="stmt"/>
+      <line num="21" count="7" type="stmt"/>
+      <line num="22" count="7" type="stmt"/>
+      <line num="23" count="7" type="stmt"/>
+      <line num="24" count="7" type="stmt"/>
+      <line num="27" count="1" type="stmt"/>
+      <line num="28" count="2" type="stmt"/>
+      <line num="29" count="2" type="stmt"/>
+      <line num="30" count="2" type="stmt"/>
+      <line num="31" count="2" type="stmt"/>
+      <line num="34" count="6" type="stmt"/>
+      <line num="35" count="6" type="stmt"/>
+      <line num="36" count="6" type="stmt"/>
+      <line num="37" count="9" type="stmt"/>
+      <line num="38" count="9" type="stmt"/>
+      <line num="39" count="9" type="cond" truecount="2" falsecount="0"/>
+      <line num="41" count="7" type="stmt"/>
+      <line num="42" count="7" type="stmt"/>
+      <line num="44" count="2" type="stmt"/>
+      <line num="45" count="2" type="stmt"/>
+      <line num="50" count="6" type="stmt"/>
+      <line num="52" count="3" type="stmt"/>
+      <line num="53" count="3" type="stmt"/>
+      <line num="56" count="6" type="stmt"/>
+      <line num="57" count="3" type="stmt"/>
+      <line num="60" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="62" count="3" type="stmt"/>
+    </file>
+  </project>
+</coverage>
