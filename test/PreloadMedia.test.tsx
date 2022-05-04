@@ -1,14 +1,17 @@
 import * as React from 'react';
 import { MediaType, PreloadMedia } from '../src';
-import { act, screen, waitFor, waitForElementToBeRemoved } from '@testing-library/react';
+import {
+  act,
+  screen,
+  waitFor,
+  waitForElementToBeRemoved,
+} from '@testing-library/react';
 import ReactDOM from 'react-dom/client';
 
 const LOAD_FAILURE_SRC = 'LOAD_FAILURE_SRC';
 const LOAD_SUCCESS_SRC = 'LOAD_SUCCESS_SRC';
 
-const media = [
-  { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
-];
+const media = [{ type: MediaType.Image, url: LOAD_SUCCESS_SRC }];
 
 const multipleMedia = [
   { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
@@ -54,43 +57,55 @@ beforeEach(() => {
 });
 
 it('Loads one image and removes the PreloadMedia children', async () => {
-  const onFinished = jest.fn()
+  const onFinished = jest.fn();
 
   act(() => {
-    ReactDOM.createRoot(container).render(<PreloadMedia media={media} onFinished={onFinished}>
-      <h1 className="preloading-title">Preloading</h1>
-    </PreloadMedia>);
+    ReactDOM.createRoot(container).render(
+      <PreloadMedia media={media} onFinished={onFinished}>
+        <h1 className="preloading-title">Preloading</h1>
+      </PreloadMedia>
+    );
   });
 
-  expect(await screen.findByText(/Preloading/i)).toBeInTheDocument()
-  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), { timeout: 2000 });
-  await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1))
+  expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
+  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
+    timeout: 2000,
+  });
+  await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
 
 it('Loads multiple images and removes the PreloadMedia children', async () => {
-  const onFinished = jest.fn()
+  const onFinished = jest.fn();
 
   act(() => {
-    ReactDOM.createRoot(container).render(<PreloadMedia media={multipleMedia} onFinished={onFinished}>
-      <h1 className="preloading-title">Preloading</h1>
-    </PreloadMedia>);
+    ReactDOM.createRoot(container).render(
+      <PreloadMedia media={multipleMedia} onFinished={onFinished}>
+        <h1 className="preloading-title">Preloading</h1>
+      </PreloadMedia>
+    );
   });
 
-  expect(await screen.findByText(/Preloading/i)).toBeInTheDocument()
-  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), { timeout: 2000 });
-  await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1))
+  expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
+  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
+    timeout: 2000,
+  });
+  await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
 
 it('Does not fail when error', async () => {
   const onFinished = jest.fn();
 
   act(() => {
-    ReactDOM.createRoot(container).render(<PreloadMedia media={failedMedia} onFinished={onFinished}>
-      <h1 className="preloading-title">Preloading</h1>
-    </PreloadMedia>);
+    ReactDOM.createRoot(container).render(
+      <PreloadMedia media={failedMedia} onFinished={onFinished}>
+        <h1 className="preloading-title">Preloading</h1>
+      </PreloadMedia>
+    );
   });
 
   expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
-  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), { timeout: 2000 });
+  await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
+    timeout: 2000,
+  });
   await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
