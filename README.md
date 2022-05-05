@@ -44,3 +44,6 @@ const LoadedApp = () => {
   );
 }
 ```
+
+## Status
+The project is currently maintained. Just open and issue or an MR and it'll be reviewed shortly.
