@@ -74,3 +74,9 @@ enum MediaType {
 }
 ```
 
+## Tests
+
+The code has 100% test coverage and can be ran by cloning the repo, installing the dependencies and then running:
+```bash
+yarn test
+```
