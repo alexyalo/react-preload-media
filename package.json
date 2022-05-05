@@ -1,6 +1,6 @@
 {
   "name": "react-preload-media",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -33,6 +33,12 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
+  "keywords": [
+    "react",
+    "preload",
+    "typescript",
+    "media"
+  ],
   "author": "Alex Yalo",
   "module": "dist/react-preload-media.esm.js",
   "size-limit": [

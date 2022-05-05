@@ -64,6 +64,7 @@ PreloadMedia Component Props:
 | type | MediaType (enum) | 
 | url  | string           |
 
+
 ```ts
 type MediaItem = {
   type: MediaType;
