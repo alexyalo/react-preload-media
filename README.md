@@ -4,7 +4,7 @@ The callback function that you pass can for example dispatch a redux action or s
 
 I hope this component can be useful to you :) 
 
-# Example
+## Example
 ```ts
 import { PreloadMedia, MediaType } from 'react-preload-media';
 
@@ -45,5 +45,43 @@ const LoadedApp = () => {
 }
 ```
 
+---
+
+## API Documentation
+The PreloadMedia Component takes two arguments:
+- A list of MediaItem
+- An onFinished function that will be used as callback and called after all the media has been loaded
+
+PreloadMedia Component Props:
+| Name       | Value       | 
+| ---------- | ----------- |
+| media      | MediaItem[] | 
+| onFinished | () => void  |
+
+### MediaItem 
+| Name | Value            | 
+| ---- | ---------------- |
+| type | MediaType (enum) | 
+| url  | string           |
+
+```ts
+type MediaItem = {
+  type: MediaType;
+  url: string;
+};
+
+enum MediaType {
+  Image,
+  Audio,
+}
+```
+---
+## Tests
+
+The code has 100% test coverage and can be ran by cloning the repo, installing the dependencies and then running:
+```bash
+yarn test
+```
+---
 ## Status
 The project is currently maintained. Just open and issue or an MR and it'll be reviewed shortly.
