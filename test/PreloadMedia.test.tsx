@@ -16,12 +16,10 @@ const media = [{ type: MediaType.Image, url: LOAD_SUCCESS_SRC }];
 const multipleMedia = [
   { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
   { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
-  { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
   { type: MediaType.Audio, url: LOAD_SUCCESS_SRC },
 ];
 
 const failedMedia = [
-  { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
   { type: MediaType.Image, url: LOAD_FAILURE_SRC },
   { type: MediaType.Image, url: LOAD_SUCCESS_SRC },
   { type: MediaType.Audio, url: LOAD_FAILURE_SRC },
@@ -33,9 +31,9 @@ beforeAll(() => {
   Object.defineProperty(global.Image.prototype, 'src', {
     set(src) {
       if (src === LOAD_FAILURE_SRC) {
-        setTimeout(() => this.onerror(), 2000);
+        setTimeout(() => this.onerror(), 1000);
       } else if (src === LOAD_SUCCESS_SRC) {
-        setTimeout(() => this.onload(), 2000);
+        setTimeout(() => this.onload(), 1000);
       }
     },
   });
@@ -43,9 +41,9 @@ beforeAll(() => {
   Object.defineProperty(global.Audio.prototype, 'src', {
     set(src) {
       if (src === LOAD_FAILURE_SRC) {
-        setTimeout(() => this.onerror(), 2000);
+        setTimeout(() => this.onerror(), 1000);
       } else if (src === LOAD_SUCCESS_SRC) {
-        setTimeout(() => this.onload(), 2000);
+        setTimeout(() => this.onload(), 1000);
       }
     },
   });
@@ -69,7 +67,7 @@ it('Loads one image and removes the PreloadMedia children', async () => {
 
   expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
   await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
-    timeout: 2000,
+    timeout: 1000,
   });
   await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
@@ -87,7 +85,7 @@ it('Loads multiple images and removes the PreloadMedia children', async () => {
 
   expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
   await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
-    timeout: 2000,
+    timeout: 3000,
   });
   await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
@@ -105,7 +103,7 @@ it('Does not fail when error', async () => {
 
   expect(await screen.findByText(/Preloading/i)).toBeInTheDocument();
   await waitForElementToBeRemoved(() => screen.queryByText(/Preloading/i), {
-    timeout: 2000,
+    timeout: 3000,
   });
   await waitFor(() => expect(onFinished).toHaveBeenCalledTimes(1));
 });
