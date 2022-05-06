@@ -59,7 +59,7 @@ export const PreloadMedia = ({
       onFinished();
     };
     preload(media);
-  }, [media, onFinished]);
+  }, [media]);
 
   if (isLoaded) return <></>;
 
